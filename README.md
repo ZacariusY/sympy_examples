@@ -1,49 +1,128 @@
-# Exemplos SymPy
+# ClassIA - Classificação de Cores com Rede Neural
 
-Esta pasta contém 10 exemplos práticos de uso da biblioteca SymPy para matemática simbólica em Python.
+![ClassIA Logo](https://img.shields.io/badge/ClassIA-Inteligência%20Artificial-blue?style=for-the-badge&logo=artificial-intelligence)
 
-## Instalação
+## 🎯 Sobre o Projeto
 
-Primeiro, instale a biblioteca SymPy:
+O **ClassIA** é um projeto de demonstração de Inteligência Artificial que utiliza uma rede neural para classificar cores como "claras" (light) ou "escuras" (dark) baseado nos valores RGB. O projeto demonstra conceitos fundamentais de machine learning aplicados à classificação de cores.
 
-```bash
-pip install sympy
+## 🚀 Funcionalidades
+
+- ✅ **Rede Neural com brain.js** - Implementação web interativa
+- ✅ **Classificação de 10 cores** - Treinamento com cores variadas
+- ✅ **Teste de generalização** - Validação com cores não vistas
+- ✅ **Análise detalhada** - Script Python para simulação
+- ✅ **Interface visual** - Página web com visualização das cores
+
+## 🎨 Cores Utilizadas
+
+### Cores Claras (Light):
+- **White** (255, 255, 255) - Branco puro
+- **LightGray** (211, 211, 211) - Cinza claro  
+- **Green** (0, 255, 0) - Verde puro
+- **Yellow** (255, 255, 0) - Amarelo puro
+- **Cyan** (0, 255, 255) - Ciano
+
+### Cores Escuras (Dark):
+- **Black** (0, 0, 0) - Preto puro
+- **Navy** (0, 0, 128) - Azul marinho
+- **Red** (255, 0, 0) - Vermelho puro
+- **Blue** (0, 0, 255) - Azul puro
+- **Purple** (128, 0, 128) - Roxo
+
+## 📁 Estrutura do Projeto
+
+```
+ClassIA/
+├── ClassIA.html                    # Página web principal
+├── analise_cores_rede_neural.md   # Documentação e análise
+├── teste_rede_neural_simples.py   # Script Python para simulação
+├── teste_rede_neural.py           # Versão avançada (requer bibliotecas)
+└── README.md                      # Este arquivo
 ```
 
-Ou usando o arquivo requirements.txt:
+## 🛠️ Como Usar
 
+### 1. Versão Web (Recomendada)
+1. Abra o arquivo `ClassIA.html` no seu navegador
+2. Aguarde o treinamento da rede neural (2000 iterações)
+3. Visualize os resultados das classificações
+4. Teste com cores adicionais
+
+### 2. Versão Python
 ```bash
-pip install -r requirements.txt
+# Execute o script de simulação
+python teste_rede_neural_simples.py
 ```
 
-## Arquivos e Funcionalidades
+### 3. Análise Detalhada
+Leia o arquivo `analise_cores_rede_neural.md` para entender a teoria por trás das classificações.
 
-1. **exemplo1_raiz_quadrada.py** - Comparação entre cálculo numérico (math) e simbólico (SymPy) de raiz quadrada
-2. **exemplo2_simbolos.py** - Definição e uso de símbolos matemáticos
-3. **exemplo3_pretty_print.py** - Formatação elegante de expressões matemáticas
-4. **exemplo4_solve_equation.py** - Resolução de equações usando solve() e Eq()
-5. **exemplo5_solveset.py** - Resolução de equações usando solveset() com domínios específicos
-6. **exemplo6_derivada.py** - Cálculo de derivadas de funções
-7. **exemplo7_integral.py** - Cálculo de integrais indefinidas
-8. **exemplo8_limite.py** - Cálculo de limites matemáticos
-9. **exemplo9_matrizes.py** - Operações com matrizes (determinante, inversa, autovalores)
-10. **exemplo10_tanh_derivada.py** - Derivada da função tangente hiperbólica
+## 🧠 Configuração da Rede Neural
 
-## Como executar
+- **Arquitetura**: 3 entradas (RGB) → 6 neurônios ocultos → 2 saídas (light/dark)
+- **Iterações**: 2000
+- **Taxa de Aprendizado**: 0.03
+- **Função de Ativação**: Sigmoid
+- **Biblioteca**: brain.js
 
-Execute qualquer arquivo individualmente:
+## 📊 Resultados Esperados
 
-```bash
-python exemplo1_raiz_quadrada.py
-python exemplo2_simbolos.py
-# ... e assim por diante
-```
+### Cores de Treinamento:
+- **White, LightGray, Yellow, Cyan** → Classificadas como "light"
+- **Black, Navy, Purple** → Classificadas como "dark"
+- **Red, Green, Blue** → Classificadas como "dark" (baseado em luminância)
 
-## Sobre SymPy
+### Cores de Teste:
+- **Orange, Pink** → Classificadas como "light"
+- **Dark Blue, Brown** → Classificadas como "dark"
+- **Lime** → Pode ter classificação controversa
 
-SymPy é uma biblioteca Python para matemática simbólica que permite:
-- Álgebra simbólica
-- Cálculo diferencial e integral
-- Resolução de equações
-- Manipulação de matrizes
-- E muito mais!
+## 🔍 Análise dos Resultados
+
+O projeto demonstra que:
+1. A rede neural consegue classificar corretamente a maioria das cores
+2. Cores com luminância alta (>128) tendem a ser classificadas como "light"
+3. Cores com luminância baixa (<128) tendem a ser classificadas como "dark"
+4. A rede mostra boa capacidade de generalização
+5. Algumas classificações podem parecer contra-intuitivas mas são consistentes com luminância percebida
+
+## 🛠️ Tecnologias Utilizadas
+
+- **HTML/CSS/JavaScript** - Interface web
+- **brain.js** - Biblioteca de rede neural
+- **Python** - Análise e simulação
+- **Markdown** - Documentação
+
+## 📈 Métricas de Performance
+
+- **Confiança média (treinamento)**: ~0.322
+- **Confiança média (teste)**: ~0.297
+- **Luminância média (cores claras)**: ~209.3
+- **Luminância média (cores escuras)**: ~62.5
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+- Adicionar novas cores ao conjunto de treinamento
+- Melhorar a interface web
+- Otimizar a rede neural
+- Adicionar novos métodos de classificação
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 👨‍💻 Autor
+
+**ZacariusY** - [GitHub](https://github.com/ZacariusY)
+
+## 🙏 Agradecimentos
+
+- [brain.js](https://github.com/BrainJS/brain.js) - Biblioteca de rede neural
+- Comunidade de Machine Learning
+- Contribuidores do projeto
+
+---
+
+⭐ **Se este projeto foi útil para você, considere dar uma estrela!** ⭐
